@@ -74,6 +74,7 @@ function* selectSort(arr) {
 		}
 		sorted.push(arr[index]);
 		arr.splice(index,1);
+		yield sorted.concat(arr);
 		smallest = arr[0];
 		index = 0;
 	}
@@ -233,6 +234,7 @@ selectButton.addEventListener('click', () => {
 	let selectionGenerator = selectSort(changingArr);
 	let snapShot;
 	let sSortTracker = setInterval(() => {
+		
 		snapShot = selectionGenerator.next();
 		if(snapShot.done) {
 			clearInterval(sSortTracker);
