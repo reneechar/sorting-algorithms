@@ -3,7 +3,7 @@ function insertionSort(arr) {
 	let j = sortedArr.length - 1;
 	while(arr.length>0) {
 		if(arr[0] > sortedArr[j]) {
-			sortedArr.splice(j+2,0,arr.shift());
+			sortedArr.splice(j+1,0,arr.shift());
 			j = sortedArr.length -1;
 		} else {
 			if(sortedArr.slice(0,j).length > 0) {
