@@ -10,7 +10,7 @@ function insertionSort(arr) {
 				j--;	
 			} else {
 				sortedArr.unshift(arr.shift());
-				j = sortedArr.length -1;
+				j = sortedArr.length - 1;
 			}
 		}
 	}
