@@ -11,7 +11,6 @@ function selectSort(arr) {
 				index = i;
 			}
 		}
-
 		sorted.push(arr[index]);
 		arr.splice(index,1);
 		smallest = arr[0];
