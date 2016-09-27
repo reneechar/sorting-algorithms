@@ -42,7 +42,7 @@ function* insertionSort(arr) {
 				//do not return a snap shot when you append the right unsorted arr to the left far right end since it wouldn't look like it moved
 			} else {
 				j = sortedArr.length -1;
-				yield sortedArr.concat(arr);
+				yield [sortedArr.concat(arr),sortedArr.length];
 			}
 		} else {
 			if(sortedArr.slice(0,j).length > 0) {
@@ -50,7 +50,7 @@ function* insertionSort(arr) {
 			} else {
 				sortedArr.unshift(arr.shift());
 				j = sortedArr.length - 1;
-				yield sortedArr.concat(arr);
+				yield [sortedArr.concat(arr),sortedArr.length];
 			}
 		}
 	}
@@ -59,7 +59,7 @@ function* insertionSort(arr) {
 
 //selectionSort - generator
 
-function selectSort(arr) {
+function* selectSort(arr) {
 	let sorted = [];
 	let smallest = arr[0];
 	let index = 0;
@@ -198,17 +198,26 @@ bubButton.addEventListener('click', () => {
 //insertion sort button event
 
 insertButton.addEventListener('click', () => {
-	let insertionGenerator = insertionSort(heightArr);
+	let changingArr = heightArr.map((element) => {
+		return element;
+	});
+	let insertionGenerator = insertionSort(changingArr);
+	let sorted;
 	let snapShot;
 	let iSortTracker = setInterval(() => {
-		snapShot = insertionGenerator.next();
-		if (snapShot.done) {
+		resetColors();
+
+		sorted = insertionGenerator.next();
+		if (sorted.done) {
 			clearInterval(iSortTracker);
 		} else {
-			snapShot = snapShot.value
-			for (var i = 0; i < snapShot.length; i++) {
+			snapShot = sorted.value;
+			for (var i = 0; i < snapShot[0].length; i++) {
 				let temp = document.getElementById(i+'');
-				temp.style.height = snapShot[i] + 'px';
+				temp.style.height = snapShot[0][i] + 'px';
+				if(snapShot[1] === i) {
+					temp.style.backgroundColor = 'white';
+				}
 			}
 		}
 	},1000);
@@ -217,7 +226,11 @@ insertButton.addEventListener('click', () => {
 //selection sort button event
 
 selectButton.addEventListener('click', () => {
-	let selectionGenerator = selectSort(heightArr);
+	let changingArr = heightArr.map((element) => {
+		return element;
+	});
+
+	let selectionGenerator = selectSort(changingArr);
 	let snapShot;
 	let sSortTracker = setInterval(() => {
 		snapShot = selectionGenerator.next();
