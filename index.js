@@ -63,7 +63,6 @@ function* selectSort(arr) {
 	let sorted = [];
 	let smallest = arr[0];
 	let index = 0;
-	let count = 0;
 
 	while(arr.length > 0 ){
 		for (var i = 0; i < arr.length; i++) {
@@ -74,7 +73,7 @@ function* selectSort(arr) {
 		}
 		sorted.push(arr[index]);
 		arr.splice(index,1);
-		yield sorted.concat(arr);
+		yield [sorted.concat(arr),sorted.length-1];
 		smallest = arr[0];
 		index = 0;
 	}
@@ -165,7 +164,7 @@ function createUniqueBars() {
 function resetColors() {
 	for (var i = 0; i < heightArr.length; i++) {
 		let temp = document.getElementById(i + '');
-		temp.style.backgroundColor = 'pink';
+		temp.style.background = 'pink';
 	}
 }
 
@@ -189,7 +188,8 @@ bubButton.addEventListener('click', () => {
 				let temp = document.getElementById(i+'');
 				temp.style.height = heightArr[i] + 'px';
 				if(i === index) {
-					temp.style.backgroundColor = 'white';
+					temp.style.background = 'white url("http://www.clker.com/cliparts/a/G/t/e/m/W/solid-white-cloud-md.png") repeat-y center top';
+					temp.style.backgroundSize = '35px 32px';
 				}
 			}
 		}
@@ -217,7 +217,8 @@ insertButton.addEventListener('click', () => {
 				let temp = document.getElementById(i+'');
 				temp.style.height = snapShot[0][i] + 'px';
 				if(snapShot[1] === i) {
-					temp.style.backgroundColor = 'white';
+					temp.style.background = 'white url("http://www.clker.com/cliparts/a/G/t/e/m/W/solid-white-cloud-md.png") repeat-y center top';
+					temp.style.backgroundSize = '35px 32px';
 				}
 			}
 		}
@@ -232,17 +233,22 @@ selectButton.addEventListener('click', () => {
 	});
 
 	let selectionGenerator = selectSort(changingArr);
+	let sorted;
 	let snapShot;
 	let sSortTracker = setInterval(() => {
-		
-		snapShot = selectionGenerator.next();
-		if(snapShot.done) {
+		resetColors();
+		sorted = selectionGenerator.next();
+		if(sorted.done) {
 			clearInterval(sSortTracker);
 		} else {
-			snapShot = snapShot.value;
-			for (var i = 0; i < snapShot.length; i++) {
+			snapShot = sorted.value;
+			for (var i = 0; i < snapShot[0].length; i++) {
 				let temp = document.getElementById(i+'');
-				temp.style.height = snapShot[i] + 'px';
+				temp.style.height = snapShot[0][i] + 'px';
+				if(i > snapShot[1]) {
+					temp.style.background = 'white url("http://www.clker.com/cliparts/a/G/t/e/m/W/solid-white-cloud-md.png") repeat-y center top';
+					temp.style.backgroundSize = '35px 32px';
+				}
 			}
 		}
 	},1000);
