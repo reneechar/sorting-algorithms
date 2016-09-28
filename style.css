@@ -1,0 +1,61 @@
+#displayBox {
+	width: 500px;
+	height: 400px;
+	background: #ffe6e6; 
+    background:-webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#ffe6e6));
+	border: 3px solid #ff80aa;
+	margin: auto;
+	position: relative;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#displayBox div {
+	margin: 5px;
+	display: inline-block;
+	background-color: pink;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+#buttonBar {
+	text-align: center;
+	margin: 10px;
+
+}
+
+button {
+	bottom: 0;
+	display: inline-block;
+	margin: 5px;
+	border-radius: 50%;
+	border: 2px solid #ff80aa;
+	color: #604020;
+	padding: 3px;
+	font-size:  20px;
+	font-family: 'Indie Flower', cursive;
+	width: 100px;
+	height: 100px;
+	background: white;
+	background:-webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#ffe6e6));
+}
+
+button:hover {
+	box-shadow:  5px 5px 5px #888888;
+	transform: scale(1.1);
+	transition-duration: .3s;
+}
+
+
+h1 {
+	color: #604020;
+	text-align: center;
+	background: white;
+	width: 100%;
+	border: 3px solid #ff80aa;
+	box-shadow: 10px 10px 5px #888888;
+	background:-webkit-gradient(linear, left top, right top, color-stop(0%,#ffffff), color-stop(100%,#ffe6e6));
+}
+
+body {
+	background: url(http://2.bp.blogspot.com/-Nxu4wn7LrP8/VLRi2YBzleI/AAAAAAAAOCs/x6kFHUGWRKE/s1600/kumawalls-01.jpg) no-repeat center center fixed;
+	font-family: 'Indie Flower', cursive;
+}
