@@ -1,4 +1,9 @@
-Quick Sort
+
+Visit the live site: https://reneechar.github.io/sorting-algorithms/
+
+
+#Algorithms
+##Quick Sort
 	i.
 	Lay the numbers down side by side. Pick up the number on the left and put it below the list of numbers. Compare each number in the list and put it on the left if it's smaller and put it on the right if it's bigger. Look at your new smaller lists and do the same thing until you only have a list with one number or no numbers. Then bring up the left numbers up to the number right above it and attach it on the left of the upper number. Bring the right numbers to the number right above it and attach it on the riht side of the upper number. Continue till you reach the top number.
 
@@ -14,7 +19,7 @@ Quick Sort
 	Best Case: If the pivot element splits the data set evenly into left and right sub data sets
 	Worst Case: If the data set is in ascending or descending order, thus having the pivot element not divide the data set into a smaller sub data sets.
 
-Bubble Sort
+##Bubble Sort
 	i.
 	Your first selected number is always on the far left. Compare the selected number to the number directly on its right. If it is in the right order, change your selected number to the one on the right. If it is not in the right order, swap the numbers and keep the same selected number. Keep track if you made a swap. Continue comparing the selected number to the number directly on its right. When there is no more numbers on the right, check if you made a swap at all. If no swaps were made, the numbers are in order. If there were swaps, then repeat the instructions from the beginning and erase the swaps made. 
 	
@@ -27,7 +32,7 @@ Bubble Sort
 	Worst Case: Elements are in reverse order and needs n passes or n^2 comparison operations 
 	O(n^2)
 
-Merge Sort
+##Merge Sort
 	i.
 	Split the data into left and right halves. Take the left half and split into left and right halves again and do the same for the right half. Continue until you have one or two data elements in a half. Compare the left half to the right half and order them. Then take the ordered set and compare it to another ordered set next to it. Continue until there are no more sets to be compared.
 	
@@ -38,7 +43,7 @@ Merge Sort
 	Best Case: When the data set is already sorted and when sub sets are all less than the compared sub set or greater than the compared sub set. 
 	Worst Case: Take the sorted array, put the largest number at the beginning and smallest number at the end. Then put the second largest number right before the smallest number and the second smallest number right after the largest number. Continue until you've placed all numbers in the data set and that is the worst case because you will have to do a comparison and you will have to alternate pushing in element from both data sets, so you are never able to push in an already ordered data set into the merged array and concat the other data set to the merged array.
 
-Insertion Sort
+##Insertion Sort
 	i.
 	Make space for an empty sorted list. Remove the first number in the unsorted list and place it in the sorted list. Remove the new first number in the unsorted list and compare it to the last number in the sorted list. Continue going from last number in the sorted list to the first number in the sorted list and place the number where it should appear in the sorted list. Continue until there are no more numbers in the unsorted list and all numbers are in the sorted list.
 	ii.
@@ -49,7 +54,7 @@ Insertion Sort
 	Worst Case: Unsorted data set is in reversed order of sorted data set
 
 
-Selection Sort
+##Selection Sort
 	i.
 	Start from the left of your unsorted list, pick up the number. Compare the number you picked up to the one on the right. If the number in your hand is smaller, continue to the next number on the right. If the number in your hand is bigger, then put down the number where you picked it up from in the list and pick up the smaller number. Continue until you get to the end of the list and take the number in your hand and put it at the end of your sorted list. Then repeat the steps from the beginning on your unsorted list until you have no numbers in your unsorted list and all numbers in your sorted list.
 
